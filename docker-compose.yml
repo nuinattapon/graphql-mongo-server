@@ -1,0 +1,43 @@
+version: "3"
+services:
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    container_name: gql-mongo
+    # restart: always
+    expose:
+      - 27017
+    # volumes must be omitted for docker for windows
+    # windows file system can't be used to support mongodb
+    # But I tried this on my CENTOS7 VM and it works fine
+    volumes:
+      - mongodata:/data/db
+    # ports:
+    #   - 27017:27017
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: gql-mongo-express
+    # restart: always
+    ports:
+      - 8081:8081
+  api:
+    container_name: gql-api
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    image: gql-express-server
+    volumes:
+      - /app/node_modules
+      - ./:/app
+    environment:
+      - NODE_ENV=dev
+    expose:
+      - 4000
+    ports:
+      - 4000:4000
+    depends_on:
+      - mongo
+      - mongo-express
+volumes:
+  mongodata:
