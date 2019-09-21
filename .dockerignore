@@ -1,2 +1,12 @@
-node_modules
-package-lock.json
+**/node_modules/
+**/node_modules_linux/
+**/Dockerfile
+**/.dockerignore
+**/.gitignore
+**/.git
+**/README.md
+**/LICENSE
+**/.vscode
+**/*.yaml
+**/package-lock.json
+**/npm-debug.log

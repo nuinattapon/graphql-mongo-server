@@ -1,12 +1,11 @@
 version: "3"
 services:
   mongo:
-    container_name: mongo
     image: mongo:latest
     container_name: gql-mongo
     # restart: always
-    expose:
-      - 27017
+    # expose:
+    #   - 27017
     # volumes must be omitted for docker for windows
     # windows file system can't be used to support mongodb
     # But I tried this on my CENTOS7 VM and it works fine
@@ -25,8 +24,8 @@ services:
     container_name: gql-api
     build:
       context: ./
-      dockerfile: Dockerfile.dev
-    image: gql-express-server
+      dockerfile: Dockerfile
+    image: gcr.io/nattapon/graphql
     volumes:
       - /app/node_modules
       - ./:/app
