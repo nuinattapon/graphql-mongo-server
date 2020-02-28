@@ -1,19 +1,29 @@
- type Query {
-    hello: String!
-    cats: [Cat!]!
-    dogs: [Dog!]!
-  }
+type Query {
+  hello: String!
 
-  type Cat {
-    id: ID!
-    name: String!
-  }
+  cats: [Cat!]!
+  dogs: [Dog!]!
 
-  type Dog {
-    id: ID!
-    name: String!
-  }
-  type Mutation {
-    createCat(name: String!): Cat!
-    createDog(name: String!): Dog!
-  }
+  cat(id: ID!): Cat
+  dog(id: ID!): Dog
+}
+
+type Cat {
+  id: ID!
+  name: String!
+}
+
+type Dog {
+  id: ID!
+  name: String!
+}
+type Mutation {
+  createCat(name: String!): Cat
+  createDog(name: String!): Dog
+
+  updateCat(id: ID!, name: String!): Cat
+  updateDog(id: ID!, name: String!): Dog
+
+  deleteCat(id: ID!): Cat!
+  deleteDog(id: ID!): Dog!
+}

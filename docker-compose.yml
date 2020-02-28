@@ -30,7 +30,7 @@ services:
       - /app/node_modules
       - ./:/app
     environment:
-      - NODE_ENV=dev
+      - NODE_ENV=development
     expose:
       - 4000
     ports:
