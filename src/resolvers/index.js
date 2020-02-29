@@ -1,15 +1,20 @@
 import { Cat, Dog } from '../models'
+// import { connectPGDB, pgQuery } from '../config/pgdb'
 
 const resolvers = {
   Query: {
-    hello: () => 'hi',
+    hello: () => 'hello',
     cats: async () => {
       try {
         const cats = await Cat.find()
         if (!cats) {
           return []
         }
+        // if (pgQuery) {
+        //   const values = await pgQuery('SELECT NOW() as now')
 
+        //   console.log({ rows: values.rows })
+        // }
         return cats
       } catch (err) {
         console.log(err)

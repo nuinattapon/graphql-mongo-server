@@ -1,0 +1,26 @@
+version: "3"
+services:
+  postgres:
+    image: "postgres:latest"
+    environment:
+      POSTGRES_PASSWORD: postgres_password
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+    ports:
+      - 5432:5432
+    container_name: gql-postgres
+  mysql:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+    ports:
+      - 3306:3306
+    container_name: gql-mysql
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    container_name: gql-mysql-adminer

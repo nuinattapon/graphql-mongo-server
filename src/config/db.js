@@ -1,5 +1,8 @@
-// const mongoose = require('mongoose');
 import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+
+// * Config dotEnv
+dotenv.config({ path: './src/config/config.env' })
 
 const connectDB = async () => {
   try {
