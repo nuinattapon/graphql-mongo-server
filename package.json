@@ -16,7 +16,7 @@
     "colors": "^1.4.0",
     "dotenv": "^8.2.0",
     "esm": "^3.2.25",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-rate-limit": "^5.1.1",
     "graphql": "^14.6.0",
     "helmet": "^3.21.3",
